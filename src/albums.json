@@ -1,21 +1,91 @@
-{
-  "title": "It's Blitz",
-  "artist": "Yeah Yeah Yeahs",
-  "album_img_link": "https://upload.wikimedia.org/wikipedia/en/b/bb/Yeah_Yeah_Yeahs_-_It%27s_Blitz.png",
-  "year": 2009,
-  "genre": "American indie rock, alternative pop",
-  "label": "Interscope Records",
-  "track_count": 12,
-  "track_list": ["Zero", "Heads Will Roll", "Soft Shock", "Skeletons", "Dull Life", "Shame and Fortune", "Runaway", "Dragon Queen", "Hysteric", "Little Shadow", "Soft Shock (acoustic)", "Skeletons(acoustic)"]
-}
 
-{
-  "title": "Abbey Road",
-  "artist": "The Beatles",
-  "album_img_link": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
-  "year": 1969,
-  "genre": "Rock",
-  "label": "Apple",
-  "track_count": 12,
-  "track_list": ["come Together", "Something", "Maxwell's Silver Hammer", "Oh! Darling", "Octopus's Garden", "I Want You (She's So Heavy)", "Here Comes the Sun", "Because", "You Never Give Me Your Money", "Sun King", "Mean Mr. Mustard", "Polythene Pam"],
+
+
+  "albums":
+  {
+    {
+      "title": "Shrek",
+      "artist": "Various Artists",
+      "album_img_link": "https://is1-ssl.mzstatic.com/image/thumb/Features/8c/58/93/dj.uraxluwc.jpg/1200x630bb.jpg",
+      "year": 2001,
+      "genre": "Donkey Rock",
+      "label": "Geffen Records",
+      "track_count": 13,
+      "track_list": ["Stay Home", "I'm a Believer", "Like Wow!", "It Is You (I Have Loved)", "Best Years of Our Lives", "Bad Reputation", "My Beloved Monster", "You Belong to Me", "All Star", "Hallelujah", "I'm on my Way", "I'm a Believer (reprise)", "True Love's First Kiss"]
+    },
+    {
+      "title": "Playing with Fire",
+      "artist": "Kevin Federline",
+      "album_img_link": "https://images-na.ssl-images-amazon.com/images/I/51C2Q9WYQ5L.jpg",
+      "year": 2006,
+      "genre": "Hip Hop",
+      "label": "Reincarnate Music",
+      "track_count": 13,
+      "track_list": ["Intro", "The World Is Mine", "America's Most Hated", "Snap", "Lose Control", "Dance With a Pimp", "Privelege", "Crazy", "A Leauge of My Own", "Playing With Fire", "Caught Up (intro)", "Caught Up", "Kept on Talkin / Middle Finger"]
+    },
+    {
+      "title": "Holy Diver",
+      "artist": "Dio",
+      "album_img_link": "https://upload.wikimedia.org/wikipedia/en/0/08/DioHolyDiver.jpg",
+      "year": 1983,
+      "genre": "Heavy Metal",
+      "label": "Warner Bros.",
+      "track_count": 9,
+      "track_list": [
+        "Stand Up and Shout",
+        "Holy Diver",
+        "Gypsy",
+        "Caught in the Middle",
+        "Don't Talk to Strangers",
+        "Straight Through the Heart",
+        "Invisible",
+        "Rainbow in the Dark",
+        "Shame on the Night"
+      ],
+    },
+    {
+      "title": "Kimono My House",
+      "artist": "Sparks",
+      "album_img_link": "https://upload.wikimedia.org/wikipedia/en/4/49/Kimono_My_House_-_Sparks.jpg",
+      "year": 1974,
+      "genre": "Glam rock",
+      "label": "Island",
+      "track_count": 10,
+      "track_list": [
+        	"This Town Ain't Big Enough for Both of Us",
+          "Amateur Hour",
+          "Falling in Love with Myself Again",
+          "Here in Heaven",
+          "Thank God It's Not Christmas",
+          "Hasta Mañana, Monsieur",
+          "Talent Is an Asset",
+          "Complaints",
+        	"In My Family",
+          "Equator"
+       ]
+    },
+    {
+      "title": "It's Blitz",
+      "artist": "Yeah Yeah Yeahs",
+      "album_img_link": "https://upload.wikimedia.org/wikipedia/en/b/bb/Yeah_Yeah_Yeahs_-_It%27s_Blitz.png",
+      "year": 2009,
+      "genre": "American indie rock, alternative pop",
+      "label": "Interscope Records",
+      "track_count": 12,
+      "track_list": ["Zero", "Heads Will Roll", "Soft Shock", "Skeletons", "Dull Life", "Shame and Fortune", "Runaway", "Dragon Queen", "Hysteric", "Little Shadow", "Soft Shock (acoustic)", "Skeletons(acoustic)"]
+    },
+
+    {
+      "title": "Abbey Road",
+      "artist": "The Beatles",
+      "album_img_link": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+      "year": 1969,
+      "genre": "Rock",
+      "label": "Apple",
+      "track_count": 12,
+      "track_list": ["come Together", "Something", "Maxwell's Silver Hammer", "Oh! Darling", "Octopus's Garden", "I Want You (She's So Heavy)", "Here Comes the Sun", "Because", "You Never Give Me Your Money", "Sun King", "Mean Mr. Mustard", "Polythene Pam"]
+    }
+
+
+
 }
