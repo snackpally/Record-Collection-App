@@ -21,5 +21,6 @@ import './index.css';
 
 
 ReactDOM.render(
-  document.getElementById('root');
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
 );
