@@ -1,10 +1,21 @@
 {
-  "title": {},
-  "artist": {},
-  "album_img_link": {},
-  "year": {},
-  "genre": {},
-  "label": {},
-  "track_count": {},
-  "track_list": {}
+  "title": "It's Blitz",
+  "artist": "Yeah Yeah Yeahs",
+  "album_img_link": "https://upload.wikimedia.org/wikipedia/en/b/bb/Yeah_Yeah_Yeahs_-_It%27s_Blitz.png",
+  "year": 2009,
+  "genre": "American indie rock, alternative pop",
+  "label": "Interscope Records",
+  "track_count": 12,
+  "track_list": ["Zero", "Heads Will Roll", "Soft Shock", "Skeletons", "Dull Life", "Shame and Fortune", "Runaway", "Dragon Queen", "Hysteric", "Little Shadow", "Soft Shock (acoustic)", "Skeletons(acoustic)"]
+}
+
+{
+  "title": "Abbey Road",
+  "artist": "The Beatles",
+  "album_img_link": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+  "year": 1969,
+  "genre": "Rock",
+  "label": "Apple",
+  "track_count": 12,
+  "track_list": ["come Together", "Something", "Maxwell's Silver Hammer", "Oh! Darling", "Octopus's Garden", "I Want You (She's So Heavy)", "Here Comes the Sun", "Because", "You Never Give Me Your Money", "Sun King", "Mean Mr. Mustard", "Polythene Pam"],
 }
