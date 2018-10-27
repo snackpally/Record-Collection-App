@@ -1,10 +1,25 @@
 {
-  "title": {},
-  "artist": {},
-  "album_img_link": {},
-  "year": {},
-  "genre": {},
-  "label": {},
-  "track_count": {},
-  "track_list": {}
+  "albums":
+  {
+    {
+      "title": "Shrek",
+      "artist": "Various Artists",
+      "album_img_link": "https://is1-ssl.mzstatic.com/image/thumb/Features/8c/58/93/dj.uraxluwc.jpg/1200x630bb.jpg",
+      "year": 2001,
+      "genre": "Donkey Rock",
+      "label": "Geffen Records",
+      "track_count": 13,
+      "track_list": ["Stay Home", "I'm a Believer", "Like Wow!", "It Is You (I Have Loved)", "Best Years of Our Lives", "Bad Reputation", "My Beloved Monster", "You Belong to Me", "All Star", "Hallelujah", "I'm on my Way", "I'm a Believer (reprise)", "True Love's First Kiss"]
+    },
+    {
+      "title": "Playing with Fire",
+      "artist": "Kevin Federline",
+      "album_img_link": "https://images-na.ssl-images-amazon.com/images/I/51C2Q9WYQ5L.jpg",
+      "year": 2006,
+      "genre": "Hip Hop",
+      "label": "Reincarnate Music",
+      "track_count": 13,
+      "track_list": ["Intro", "The World Is Mine", "America's Most Hated", "Snap", "Lose Control", "Dance With a Pimp", "Privelege", "Crazy", "A Leauge of My Own", "Playing With Fire", "Caught Up (intro)", "Caught Up", "Kept on Talkin / Middle Finger"]
+    }
+  }
 }
