@@ -1,10 +1,24 @@
 {
-  "title": {},
-  "artist": {},
-  "album_img_link": {},
-  "year": {},
-  "genre": {},
-  "label": {},
-  "track_count": {},
-  "track_list": {}
+  "title": "The Razor's Edge",
+  "artist": "AC/DC",
+  "album_img_link": "https://en.wikipedia.org/wiki/The_Razors_Edge_(AC/DC_album)#/media/File:Razorsedge.jpg",
+  "year": 1990,
+  "genre": "Hard Rock",
+  "label": "Atco Records",
+  "track_count": 12,
+  "track_list": ["Thunderstruck", "Fire Your Guns", "Moneytalks", "The Razors Edge",
+    "Mistress for Christmas", "Rock Your Heart Out", "Are You Ready", "Got You by the Balls",
+    "Shot of Love", "Let's Make It", "Goodbye & Good Riddance to Bad Luck", "If You Dare"]
+},
+{
+  "title": "Get A Grip",
+  "artist": "Aerosmith",
+  "album_img_link": "https://en.wikipedia.org/wiki/Get_a_Grip#/media/File:GetAGrip_Aerosmithalbum.jpg",
+  "year": 1993,
+  "genre": "Hard Rock",
+  "label": "Geffen",
+  "track_count": 14,
+  "track_list": ["Intro", "Eat the Rich", "Get A Grip", "Fever", "Livin' on the Edge",
+    "Flesh", "Walk On Down", "Shut Up and Dance", "Cryin'", "Gotta Love It", "Crazy",
+    "Line Up", "Amazing", "Boogie Man"]
 }
