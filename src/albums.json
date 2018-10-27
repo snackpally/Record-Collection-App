@@ -1,10 +1,41 @@
 {
-  "title": {},
-  "artist": {},
-  "album_img_link": {},
-  "year": {},
-  "genre": {},
-  "label": {},
-  "track_count": {},
-  "track_list": {}
+  "title": "Kimono My House",
+  "artist": "Sparks",
+  "album_img_link": "https://upload.wikimedia.org/wikipedia/en/4/49/Kimono_My_House_-_Sparks.jpg",
+  "year": 1974,
+  "genre": "Glam rock",
+  "label": "Island",
+  "track_count": 10,
+  "track_list": [
+    	"This Town Ain't Big Enough for Both of Us",
+      "Amateur Hour",
+      "Falling in Love with Myself Again",
+      "Here in Heaven",
+      "Thank God It's Not Christmas",
+      "Hasta Mañana, Monsieur",
+      "Talent Is an Asset",
+      "Complaints",
+    	"In My Family",
+      "Equator"
+   ]
+},
+{
+  "title": "Holy Diver",
+  "artist": "Dio",
+  "album_img_link": "https://upload.wikimedia.org/wikipedia/en/0/08/DioHolyDiver.jpg",
+  "year": 1983,
+  "genre": "Heavy Metal",
+  "label": "Warner Bros.",
+  "track_count": 9,
+  "track_list": [
+    "Stand Up and Shout",
+    "Holy Diver",
+    "Gypsy",
+    "Caught in the Middle",
+    "Don't Talk to Strangers",
+    "Straight Through the Heart",
+    "Invisible",
+    "Rainbow in the Dark",
+    "Shame on the Night"
+  ],
 }
