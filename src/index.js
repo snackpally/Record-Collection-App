@@ -40,13 +40,16 @@ class Album extends React.Component {
 
 
     var album = this.props.data;
+    var style = {
+      backgroundImage:'url(' + this.props.data.album_img_link + ')',
+    };
     return (
       <div id="f1_container">
       <div id="f1_card" class="shadow">
-      <div class="front face"><ul>
+      <div class="front face" style={style}><ul>
       <li><h1>{this.props.data.title}</h1></li>
       <li>{this.props.data.artist}</li>
-      <li><img src={this.props.data.album_img_link} /></li>
+      
       </ul></div>
       <div class="back face center"><ul>
       <li>{this.props.data.year}</li>
