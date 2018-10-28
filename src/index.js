@@ -64,6 +64,11 @@ class Album extends React.Component {
 //Dom Render
 
 ReactDOM.render(
+<<<<<<< HEAD
+  <h1>Hello, world!</h1>, //what to feed
+  document.getElementById('root') //where to feed it
+=======
   <App/>,
   document.getElementById('root')
+>>>>>>> bd7eb9b17e365275401aae72bd1addf12d7190e9
 );
