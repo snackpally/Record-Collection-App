@@ -4,6 +4,12 @@ import './index.css';
 import data from './albums.json';
 //create components
 //class App extends React.Component {
+//app component
+class App extends React.Component {
+  render() {
+    return <RecordList />;
+  }
+}
 
 //search componenet
 
@@ -11,6 +17,18 @@ import data from './albums.json';
 //edit component
 //class Edit extends React.Component {
 
+//Record List Component
+class RecordList extends React.Component {
+
+  render() {
+    let result = [];
+    for(var i = 0; i < data.length; i++){
+      result.push(<Album data={data[i]} />);
+    }
+
+    return result;
+  }
+}
 //Record Component (contains title, artist, genre, album art link, tracklist, release date, label, trackCount)
 class Album extends React.Component {
   constructor(props) {
@@ -19,6 +37,7 @@ class Album extends React.Component {
 
 
   render() {
+    var album = this.props.data;
     return (
       <div id="f1_container">
       <div id="f1_card" class="shadow">
@@ -42,26 +61,10 @@ class Album extends React.Component {
 }
 
 
-//Record List Component
-class RecordList extends React.Component {
 
-    render() {
-      let result = [];
-      for(var i = 0; i < data.length; i++){
-        result.push(<Album data={data[i]} />);
-      }
 
-      return result;
-    }
-}
 
-//app component
-class App extends React.Component {
-  render() {
-    return <RecordList />;
-  }
-}
-
+//Dom Render
 
 ReactDOM.render(
   <App/>,
