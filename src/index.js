@@ -20,19 +20,22 @@ class Album extends React.Component {
 
   render() {
     return (
-      <div className='album'>
-      <ul>
-      <li>
-      <h1>{this.props.data.title}</h1></li>
+      <div id="f1_container">
+      <div id="f1_card" class="shadow">
+      <div class="front face"><ul>
+      <li><h1>{this.props.data.title}</h1></li>
       <li>{this.props.data.artist}</li>
       <li><img src={this.props.data.album_img_link} /></li>
+      </ul></div>
+      <div class="back face center"><ul>
       <li>{this.props.data.year}</li>
       <li>{this.props.data.genre}</li>
       <li>{this.props.data.label}</li>
       <li>{this.props.data.track_count}</li>
       <li>{this.props.data.track_list}</li>
       </ul>
-
+      </div>
+      </div>
       </div>
     );
   }
@@ -60,13 +63,7 @@ class App extends React.Component {
 }
 
 
-
 ReactDOM.render(
-<<<<<<< HEAD
-  <h1>Hello, world!</h1>, //what to feed
-  document.getElementById('root') //where to feed it
-=======
   <App/>,
   document.getElementById('root')
->>>>>>> bd7eb9b17e365275401aae72bd1addf12d7190e9
 );
