@@ -21,6 +21,6 @@ import './index.css';
 
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
+  <h1>Hello, world!</h1>, //what to feed
+  document.getElementById('root') //where to feed it
 );
