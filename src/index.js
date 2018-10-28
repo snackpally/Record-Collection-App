@@ -4,6 +4,12 @@ import './index.css';
 import data from './albums.json';
 //create components
 //class App extends React.Component {
+//app component
+class App extends React.Component {
+  render() {
+    return <RecordList />;
+  }
+}
 
 //search componenet
 
@@ -11,6 +17,18 @@ import data from './albums.json';
 //edit component
 //class Edit extends React.Component {
 
+//Record List Component
+class RecordList extends React.Component {
+
+  render() {
+    let result = [];
+    for(var i = 0; i < data.length; i++){
+      result.push(<Album data={data[i]} />);
+    }
+
+    return result;
+  }
+}
 //Record Component (contains title, artist, genre, album art link, tracklist, release date, label, trackCount)
 class Album extends React.Component {
   constructor(props) {
@@ -19,18 +37,19 @@ class Album extends React.Component {
 
 
   render() {
+    var album = this.props.data;
     return (
       <div className='album'>
       <ul>
       <li>
-      <h1>{this.props.data.title}</h1></li>
-      <li>{this.props.data.artist}</li>
-      <li><img src={this.props.data.album_img_link} /></li>
-      <li>{this.props.data.year}</li>
-      <li>{this.props.data.genre}</li>
-      <li>{this.props.data.label}</li>
-      <li>{this.props.data.track_count}</li>
-      <li>{this.props.data.track_list}</li>
+      <h1>{album.title}</h1></li>
+      <li>{album.artist}</li>
+      <li><img src={album.album_img_link} /></li>
+      <li>{album.year}</li>
+      <li>{album.genre}</li>
+      <li>{album.label}</li>
+      <li>{album.track_count}</li>
+      <li>{album.track_list}</li>
       </ul>
 
       </div>
@@ -39,27 +58,10 @@ class Album extends React.Component {
 }
 
 
-//Record List Component
-class RecordList extends React.Component {
-
-    render() {
-      let result = [];
-      for(var i = 0; i < data.length; i++){
-        result.push(<Album data={data[i]} />);
-      }
-
-      return result;
-    }
-}
-
-//app component
-class App extends React.Component {
-  render() {
-    return <RecordList />;
-  }
-}
 
 
+
+//Dom Render
 
 ReactDOM.render(
   <App/>,
