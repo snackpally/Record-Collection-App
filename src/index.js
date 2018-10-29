@@ -11,11 +11,32 @@ class App extends React.Component {
   }
 }
 
-//search componenet
-
+//search componet
+// input componet
+// todo create input form componet
 
 //edit component
-//class Edit extends React.Component {
+class Edit extends React.Component{
+  constructor(props){
+    super(props);
+    this.state= {
+      value: 'Edit All',
+    };
+  }
+
+    render() {
+      return (
+        <button className="editBtn" onClick={()=> {if (this.state.value === 'Edit All'){
+          this.setState({value: 'Submit'})
+        } else {
+          this.setState({value: 'Edit All'})
+        }
+      }}>
+          {this.state.value}
+        </button>
+      );
+    }
+}
 
 //Record List Component
 class RecordList extends React.Component {
@@ -31,9 +52,9 @@ class RecordList extends React.Component {
 }
 //Record Component (contains title, artist, genre, album art link, tracklist, release date, label, trackCount)
 class Album extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
 
   render() {
@@ -41,25 +62,28 @@ class Album extends React.Component {
 
     var album = this.props.data;
     var style = {
-      backgroundImage:'url(' + this.props.data.album_img_link + ')',
+      backgroundImage:'url(' + album.album_img_link + ')',
     };
     return (
       <div id="f1_container">
-      <div id="f1_card" class="shadow">
-      <div class="front face" style={style}><ul>
-      <li><h1>{this.props.data.title}</h1></li>
-      <li>{this.props.data.artist}</li>
-      
-      </ul></div>
-      <div class="back face center"><ul>
-      <li>{this.props.data.year}</li>
-      <li>{this.props.data.genre}</li>
-      <li>{this.props.data.label}</li>
-      <li>{this.props.data.track_count}</li>
-      <li>{this.props.data.track_list}</li>
-      </ul>
-      </div>
-      </div>
+        <div id="f1_card" className="shadow">
+          <div className="front face" style={style}>
+          </div>
+          <div className="back face center">
+                <ul>
+                  <li><img className="backPic" src={album.album_img_link} alt=""/></li>
+                  <li><h1>{album.title}</h1></li>
+                  <li>{album.artist}</li>
+                  <li>{album.year}</li>
+                  <li>{album.genre}</li>
+                  <li>{album.label}</li>
+                  <li>{album.track_count}</li>
+                  // todo map track list to display key and value
+                  <li>{album.track_list}</li>
+                </ul>
+              <Edit />
+          </div>
+          </div>
       </div>
     );
   }

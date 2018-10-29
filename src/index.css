@@ -25,6 +25,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  background-size: 100%;
 }
 .face.back {
   display: block;
@@ -35,9 +36,11 @@
   text-align: center;
   background-color: #aaa;
 }
-.face {
-  background-size: 100%;
+img.backPic {
+  width: 25%;
+
 }
+
 
 ul li {
   list-style-type: none;
