@@ -47,15 +47,19 @@ class AlbumList extends React.Component {
      result.push(<Album data={data[i]} />);
    }
 
-   return result;
+   return (
+     <div className="cards">{result}</div>
+   );
  }
 }
 //Record Component (contains title, artist, genre, album art link, tracklist, release date, label, trackCount)
 class Album extends React.Component {
- // constructor(props) {
- //   super(props);
- // }
+   constructor(props) {
+        super(props);
+   }
+   makeTracklist(tracklist) {
 
+  }
 
  render() {
 
@@ -66,26 +70,35 @@ class Album extends React.Component {
    };
    return (
      <div id="f1_container">
-       <div id="f1_card" className="shadow">
+       <div id="f1_card">
          <div className="front face" style={style}>
          </div>
          <div className="back face center">
+           <div className="image-wrap"><img className="backPic" src={album.album_img_link} alt=""/></div>
+           <div className="info-list">
                <ul>
-                 <li><img className="backPic" src={album.album_img_link} alt=""/></li>
                  <li><h1>{album.title}</h1></li>
                  <li>{album.artist}</li>
                  <li>{album.year}</li>
                  <li>{album.genre}</li>
                  <li>{album.label}</li>
                  <li>{album.track_count}</li>
-                 // todo map track list to display key and value
-                 <li>{album.track_list}</li>
+                 <li>
+                  <ol>
+                    {album.track_list.map(track => {
+                     return (
+                       <li>{track}</li>
+                     );
+                    })}
+                  </ol>
+                </li>
                </ul>
              <Edit />
+             </div>
          </div>
          </div>
      </div>
-   );
+   );// todo map track list to display key and value
  }
 }
 

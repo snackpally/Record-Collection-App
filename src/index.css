@@ -1,9 +1,12 @@
+body {
+  background-image: url('https://static1.squarespace.com/static/53ce2f11e4b006756b740a82/53ce30fbe4b015c8937e8f76/563d32c0e4b0935a0d78fea0/1446875591211/?format=1500w');
+  background-size: cover;
+}
 #f1_container {
   position: relative;
-  margin: 10px auto;
-  width: 450px;
-  height: 281px;
+  margin: 2% auto;
   z-index: 1;
+  max-width: 200px !important;
 }
 #f1_container {
   perspective: 1000;
@@ -18,14 +21,14 @@
 }
 #f1_container:hover #f1_card {
   transform: rotateY(180deg);
-  box-shadow: -5px 5px 5px #aaa;
 }
 .face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background-size: 100%;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .face.back {
   display: block;
@@ -36,13 +39,62 @@
   text-align: center;
   background-color: #aaa;
 }
-img.backPic {
-  width: 25%;
+.face.front {
+  background-size: cover;
 
 }
-
-
-ul li {
+.face.back .image-wrap {
+  width: 300px;
+  display: inline-block;
+  width: 20%;
+}
+.face ul {
+  padding: 0;
   list-style-type: none;
+
 }
+.face .info-list {
+  display: inline-block;
+  width: 75%;
+
+}
+img.backPic {
+  width: 100%;
+}
+.center {
+  text-align: center;
+}
+
 /*a small change here in the CSS*/
+.cards {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+/*button styling*/
+.editBtn {
+  -moz-box-shadow:inset 0px 0px 15px 3px #23395e;
+	-webkit-box-shadow:inset 0px 0px 15px 3px #23395e;
+	box-shadow:inset 0px 0px 15px 3px #23395e;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2e466e), color-stop(1, #415989));
+	background:-moz-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-webkit-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-o-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:-ms-linear-gradient(top, #2e466e 5%, #415989 100%);
+	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e466e', endColorstr='#415989',GradientType=0);
+	background-color:#2e466e;
+	-moz-border-radius:17px;
+	-webkit-border-radius:17px;
+	border-radius:17px;
+	border:1px solid #1f2f47;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
