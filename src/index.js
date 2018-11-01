@@ -11,40 +11,13 @@ class App extends React.Component {
  }
 }
 
-//search componet
-// input componet
-// todo create input form componet
-
-//edit component
-class Edit extends React.Component{
- constructor(props){
-   super(props);
-   this.state= {
-     value: 'Edit All',
-   };
- }
-
-   render() {
-     return (
-       <button className="editBtn" onClick={()=> {if (this.state.value === 'Edit All'){
-         this.setState({value: 'Submit'})
-       } else {
-         this.setState({value: 'Edit All'})
-       }
-     }}>
-         {this.state.value}
-       </button>
-     );
-   }
-}
-
 //Record List Component
 class AlbumList extends React.Component {
 
  render() {
    let result = [];
    for(var i = 0; i < data.length; i++){
-     result.push(<Album data={data[i]} />);
+     result.push(<AlbumCard data={data[i]} />);
    }
 
    return (
@@ -52,63 +25,93 @@ class AlbumList extends React.Component {
    );
  }
 }
+
+
 //Record Component (contains title, artist, genre, album art link, tracklist, release date, label, trackCount)
-class Album extends React.Component {
-   constructor(props) {
-        super(props);
-   }
-   makeTracklist(tracklist) {
-
+class AlbumCard extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        editing: false
+      }
   }
-
+  toggleEdit = () => {
+   this.setState(prevState => ({
+     editing: !prevState.editing
+   }));
+  }
  render() {
-
-
    var album = this.props.data;
    var style = {
      backgroundImage:'url(' + album.album_img_link + ')',
    };
    return (
-     <div id="f1_container">
-       <div id="f1_card">
-         <div className="front face" style={style}>
-         </div>
-         <div className="back face center">
-           <div className="image-wrap"><img className="backPic" src={album.album_img_link} alt=""/></div>
-           <div className="info-list">
-               <ul>
-                 <li><h1>{album.title}</h1></li>
-                 <li>{album.artist}</li>
-                 <li>{album.year}</li>
-                 <li>{album.genre}</li>
-                 <li>{album.label}</li>
-                 <li>{album.track_count}</li>
-                 <li>
-                  <ol>
-                    {album.track_list.map(track => {
-                     return (
-                       <li>{track}</li>
-                     );
-                    })}
-                  </ol>
-                </li>
-               </ul>
-             <Edit />
-             </div>
-         </div>
+     <div className="back">
+       <div className="image-wrap"><img className="backPic" src={album.album_img_link} alt=""/></div>
+       <div className="info-list">
+           <ul>
+             <li><h1><EditableField value={album.title} editing={this.state.editing}/></h1></li>
+             <li><EditableField value={album.artist} editing={this.state.editing}/></li>
+             <li><EditableField value={album.year} editing={this.state.editing}/></li>
+             <li><EditableField value={album.genre} editing={this.state.editing}/></li>
+             <li><EditableField value={album.label} editing={this.state.editing}/></li>
+             <li>Track List:
+              <ol>
+                {album.track_list.map(track => {
+                 return (
+                   <li><EditableField value={track} editing={this.state.editing}/></li>
+                 );
+                })}
+              </ol>
+            </li>
+           </ul>
+         <button onClick={this.toggleEdit}>Edit</button>
          </div>
      </div>
-   );// todo map track list to display key and value
+   );
  }
 }
+class EditableField extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      value: props.value,
+      editing: props.editing
+    }
+  }
+  toggleEdit = () => {
+    this.setState(prevState => ({
+      editing: !prevState.editing
+    }));
+  }
+  handleChange(event) {
+    this.setState({formValue: event.target.value});
+  }
 
-
-
-
-
-
-
-
+  handleSubmit(event) {
+    this.setState({value: this.state.formValue});
+    this.toggleEdit();
+    event.preventDefault();
+  }
+  render() {
+    if (this.state.editing){
+      return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          <input type="text" placeholder={this.state.value} value={this.state.formValue} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" /><button onClick={this.toggleEdit}>Cancel</button>
+      </form>
+    );
+    }
+    else {
+      return (<div>{this.state.value}
+      <button onClick={this.toggleEdit}>Edit</button></div>);
+    }
+  }
+}
 //Dom Render
 
 ReactDOM.render(
