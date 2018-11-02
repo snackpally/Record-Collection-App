@@ -30,9 +30,15 @@ class SearchBar extends React.Component {
   }
 
     render() {
+      let search = this.state.search.toLowerCase();
       let filterArtist = this.props.data.filter(
         (data) => {
-          return data.artist.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+          return (
+            (data.artist.toLowerCase().indexOf(search) !== -1) ||
+            (data.title.toLowerCase().indexOf(search) !== -1)||
+            (data.genre.toLowerCase().indexOf(search) !== -1)||
+            (data.label.toLowerCase().indexOf(search) !== -1)
+        );
         })
 
       return(
