@@ -1,35 +1,108 @@
+/* --- Grid Styling --- */
+.item1 { grid-area: header; }
+.item2 { grid-area: search; }
+.item3 { grid-area: main; }
 
-.back {
-  display: inline-block;
-
+.grid-container {
+  display: grid;
+  grid-template:
+    'header header header header header header'
+    'search search main main main main'
+    'search search main main main main';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  font-family: arial;
 }
-.image-wrap {
+.grid-container>div {
+  background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
 }
-.image-wrap img {
-  width: 200px;
+
+
+/* --- Card Sytling --- */
+
+.f1_container {
+  float: left;
+  margin: 10px auto;
+  padding: 20px;
+  width: 160px;
+  height: 160px;
+  position: relative;
+  z-index: 0;
+  perspective: 1000;
 }
 
-/*a small change here in the CSS*/
-.cards {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
+.f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all .5s linear;
 }
+
+.f1_container:hover .f1_card {
+  position: relative;
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+  width: 480px;
+  height: 480px;
+  z-index: 1000;
+}
+.f1_container:hover {
+  z-index: 100000;
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-size: 100%;
+
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  background-color: #aaa;
+}
+
+/* --- Card Styling Back Information --- */
+.topBack {
+  padding-left: 20px;
+}
+.front.face {
+    background-size: cover;
+}
+img.backPic {
+  width: 35%;
+  float: left;
+}
+
+.styleTitle {
+  font-size: 20px;
+}
+
+.styleArtist {
+  font-size: 20px;
+}
+
+.trackList {
+  float: left;
+}
+
 ul li {
   list-style-type: none;
-  padding: 3px;
+  padding: 0px;
+  margin: 0px;
 }
 ol li {
   list-style-type: decimal;
 }
-
-/*button styling*/
-button, input[type='submit']{
-  color: #999;
-  padding: 5px;
-  border-color: #999;
-  border-radius: 5px;
+button, input[type="submit"] {
+  color: #fefefe;
   background-color: transparent;
-  margin: 0 10px;
+  border: 1px solid #fefefe;
+  border-radius: 5px;
+  margin: 0px 10px;
 }
