@@ -20,9 +20,14 @@
 
 
 /* --- Card Sytling --- */
-
-.f1_container {
+.output {
   float: left;
+}
+.metainfo {
+  text-align: center;
+}
+.f1_container {
+
   margin: 10px auto;
   padding: 20px;
   width: 160px;

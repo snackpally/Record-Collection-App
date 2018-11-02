@@ -86,6 +86,7 @@ class AlbumCard extends React.Component {
      backgroundImage:'url(' + album.album_img_link + ')',
    };
    return (
+     <div className="output">
     <div className="f1_container">
       <div className="f1_card">
         <div className="front face" style={style}>
@@ -113,6 +114,11 @@ class AlbumCard extends React.Component {
           <button onClick={this.toggleEdit}>Edit</button>
         </div>
       </div>
+    </div>
+    <div className="metainfo">
+    <h3>{album.title}</h3>
+    <h4>{album.artist}</h4>
+    </div>
     </div>
    );
  }
