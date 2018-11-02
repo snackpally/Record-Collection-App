@@ -35,6 +35,7 @@
   position: relative;
   z-index: 0;
   perspective: 1000;
+  transition-duration: .5s;
 }
 
 .f1_card {
@@ -53,7 +54,7 @@
   z-index: 1000;
 }
 .f1_container:hover {
-  z-index: 100000;
+z-index: 100000;
 }
 .face {
   position: absolute;
@@ -69,7 +70,8 @@
   box-sizing: border-box;
   color: white;
   text-align: center;
-  background-color: #aaa;
+  background-color: #3f3f3f;
+  z-index: 100000;
 }
 
 /* --- Card Styling Back Information --- */
