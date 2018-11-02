@@ -86,28 +86,36 @@ class AlbumCard extends React.Component {
      backgroundImage:'url(' + album.album_img_link + ')',
    };
    return (
-     <div className="back">
-       <div className="image-wrap"><img className="backPic" src={album.album_img_link} alt=""/></div>
-       <div className="info-list">
-           <ul>
-             <li><h1><EditableField value={album.title} editing={this.state.editing}/></h1></li>
-             <li><EditableField value={album.artist} editing={this.state.editing}/></li>
-             <li><EditableField value={album.year} editing={this.state.editing}/></li>
-             <li><EditableField value={album.genre} editing={this.state.editing}/></li>
-             <li><EditableField value={album.label} editing={this.state.editing}/></li>
-             <li>Track List:
-              <ol>
-                {album.track_list.map(track => {
-                 return (
-                   <li><EditableField value={track} editing={this.state.editing}/></li>
-                 );
-                })}
-              </ol>
-            </li>
-           </ul>
-         <button onClick={this.toggleEdit}>Edit</button>
-         </div>
-     </div>
+    <div id="f1_container">
+      <div id="f1_card">
+        <div className="front face" style={style}>
+        </div>
+        <div className="back face">
+          <div className="topBack">
+            <img className="backPic" src={album.album_img_link} alt=""/>
+            <div className="info-list">
+              <ul>
+                 <li className="styleTitle"><h2><EditableField value={album.title} editing={this.state.editing}/></h2></li>
+                 <li className="styleArtist"><EditableField value={album.artist} editing={this.state.editing}/></li>
+                 <li><EditableField value={album.year} editing={this.state.editing}/></li>
+                 <li><EditableField value={album.genre} editing={this.state.editing}/></li>
+                 <li><EditableField value={album.label} editing={this.state.editing}/></li>
+                 <li className="tracklist">Track List:
+                  <ol>
+                    {album.track_list.map(track => {
+                     return (
+                       <li><EditableField value={track} editing={this.state.editing}/></li>
+                     );
+                    })}
+                  </ol>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button onClick={this.toggleEdit}>Edit</button>
+        </div>
+      </div>
+    </div>
    );
  }
 }
