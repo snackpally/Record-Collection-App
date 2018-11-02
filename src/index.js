@@ -7,26 +7,66 @@ import data from './albums.json';
 //app component
 class App extends React.Component {
  render() {
-   return <AlbumList />;
+   return (
+
+     <SearchBar data={this.props.data} />
+
+
+   )
  }
 }
+
+//search componet
+class SearchBar extends React.Component {
+  constructor(){
+    super();
+    this.state= {
+      search: ''
+    };
+  }
+
+  updateSearch(event){
+    this.setState({search: event.target.value})
+  }
+
+    render() {
+      let filterArtist = this.props.data.filter(
+        (data) => {
+          return data.artist.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        })
+
+      return(
+        <div className="searchField">
+          <input type="text" value={this.state.search}
+          onChange={this.updateSearch.bind(this)}/>
+
+            <div>
+              {filterArtist.map((data) => {
+              return <AlbumCard data={data} />
+            })}
+            </div>
+        </div>
+      )
+    }
+}
+// input componet
+// todo create input form componet
+
 
 //Record List Component
 class AlbumList extends React.Component {
 
- render() {
-   let result = [];
-   for(var i = 0; i < data.length; i++){
-     result.push(<AlbumCard data={data[i]} />);
+   render() {
+     let result = [];
+     for(var i = 0; i < data.length; i++){
+       result.push(<AlbumCard data={data[i]} />);
+     }
+
+     return (
+       <div className="cards">{result}</div>
+     );
    }
-
-   return (
-     <div className="cards">{result}</div>
-   );
- }
 }
-
-
 //Record Component (contains title, artist, genre, album art link, tracklist, release date, label, trackCount)
 class AlbumCard extends React.Component {
   constructor(props) {
@@ -71,6 +111,7 @@ class AlbumCard extends React.Component {
    );
  }
 }
+
 class EditableField extends React.Component {
   constructor(props){
     super(props);
@@ -112,9 +153,17 @@ class EditableField extends React.Component {
     }
   }
 }
+
+
+
+
+
+
+
+
 //Dom Render
 
 ReactDOM.render(
- <App/>,
+ <App data={data} />,
  document.getElementById('root')
 );
