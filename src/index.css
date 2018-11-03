@@ -1,3 +1,5 @@
+/* Clean up line breaks */
+
 /* --- Grid Styling --- */
 .item1 { grid-area: header; }
 .item2 { grid-area: search; }
@@ -85,6 +87,14 @@ img.backPic {
   width: 35%;
   float: left;
 }
+
+/*
+  Group similar styles, either into a new css class, or using
+
+  .styleTitle .styleArtist {
+    font-size: 20px;
+  }
+*/
 
 .styleTitle {
   font-size: 20px;
