@@ -8,7 +8,9 @@ import data from './albums.json';
 class App extends React.Component {
   render() {
     return (
-      <SearchBar data={this.props.data} />
+      <div className="gridWrapper">
+        <SearchBar data={this.props.data} />
+      </div>
     );
   }
 }
