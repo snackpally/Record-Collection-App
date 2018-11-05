@@ -177,3 +177,12 @@ button, input[type="submit"] {
 .change:hover {
   cursor: pointer;
 }
+.info-list > li:hover .change {
+  opacity: 1;
+}
+.info-list > li:hover > ol .change {
+  visibility: hidden;
+}
+.info-list > li > ol > li:hover .change {
+  visibility: visible;
+}
