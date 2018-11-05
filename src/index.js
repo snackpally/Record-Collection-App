@@ -24,7 +24,8 @@ import data from './albums.json';
 class App extends React.Component {
   render() {
     return (
-      <div className="gridWrapper">
+      <div>
+        <h1>Find your Tunes</h1>
         <SearchBar data={this.props.data} />
       </div>
     );
@@ -58,7 +59,7 @@ class SearchBar extends React.Component {
       <div className="searchField">
         <input type="text" value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
-        <div>
+        <div className="gridWrapper">
           {/*
             It is important to pass the key along to any child in an array or
             iterator. React is using this for the virtual dom, to assure that the
@@ -109,8 +110,8 @@ class AlbumCard extends React.Component {
     };
     return (
       <div className="output">
-        <div className="f1_container">
-          <div className="f1_card">
+        <div className="card_container">
+          <div className="card">
             <div className="front face" style={style}>
             </div>
             <div className="back face">
@@ -136,7 +137,7 @@ class AlbumCard extends React.Component {
                   </li>
                 </div>
                 <li className="tracklist">
-                Track List:
+                <h3>Track List:</h3>
                   <ol>
                     {album.track_list.map((track,i) => {
                       return (

@@ -1,35 +1,51 @@
 /* Clean up line breaks */
+body {
+  background-color: darkkhaki;
+}
+
+div>h1 {
+  text-align: center;
+}
 
 /* --- Grid Styling --- */
-.item1 { grid-area: header; }
-.item2 { grid-area: search; }
-.item3 { grid-area: main; }
-
-.grid-container {
-  display: grid;
-  grid-template:
-    'header header header header header header'
-    'search search main main main main'
-    'search search main main main main';
-  grid-gap: 10px;
-  background-color: #2196F3;
-  font-family: arial;
+.item1 {
+  grid-area: header;
 }
+
+.item2 {
+  grid-area: search;
+}
+
+.item3 {
+  grid-area: main;
+}
+
+.gridWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .grid-container>div {
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
 }
 
-
 /* --- Card Sytling --- */
-.output {
+.output:not(.metainfo) {
   float: left;
+  margin: 1em;
 }
+
 .metainfo {
   text-align: center;
+  line-height: .10em;
+  background-color: rgba(101, 101, 101, 0.48);
+  border: 1px solid black;
+  margin-left: 50px;
+  margin-right: 50px;
 }
-.f1_container {
 
+.card_container {
   margin: 10px auto;
   padding: 20px;
   width: 160px;
@@ -37,35 +53,36 @@
   position: relative;
   z-index: 0;
   perspective: 1000;
-  transition-duration: .5s;
 }
 
-.f1_card {
+.card {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
   transition: all .5s linear;
+  box-shadow: 0px 0px 10px #333;
 }
 
-.f1_container:hover .f1_card {
+.card_container:hover .card {
   position: relative;
   transform: rotateY(180deg);
-  box-shadow: -5px 5px 5px #aaa;
   width: 480px;
   height: 480px;
   z-index: 1000;
 }
-.f1_container:hover {
-z-index: 100000;
+
+.card_container:hover {
+  z-index: 100000;
 }
+
 .face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   background-size: 100%;
-
 }
+
 .face.back {
   display: block;
   transform: rotateY(180deg);
@@ -78,14 +95,25 @@ z-index: 100000;
 
 /* --- Card Styling Back Information --- */
 .topBack {
-  padding-left: 20px;
+  padding-left: 0px;
 }
+
 .front.face {
-    background-size: cover;
+  background-size: cover;
 }
+
 img.backPic {
-  width: 35%;
+  width: 25%;
   float: left;
+}
+
+/*Search Bar styling  */
+.searchField>input {
+  display: inherit;
+  margin: auto;
+  box-shadow: 1px 3px 8px #333;
+  border-radius: 6px;
+  font-size: x-large;
 }
 
 /*
@@ -95,27 +123,37 @@ img.backPic {
     font-size: 20px;
   }
 */
+/* TODO: want to space album art closer to upper list. */
+.info-list {
+  text-align: center;
+  line-height: .5em;
+}
 
 .styleTitle {
   font-size: 20px;
+  line-height: .5em;
 }
 
 .styleArtist {
   font-size: 20px;
 }
 
-.trackList {
+.trackList h3 {
   float: left;
+  text-decoration: underline !important;
 }
 
 ul li {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
+  text-align: center;
 }
+
 ol li {
   list-style-type: decimal;
 }
+
 button, input[type="submit"] {
   color: #fefefe;
   background-color: transparent;
