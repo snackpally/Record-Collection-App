@@ -220,6 +220,36 @@ li:hover .change {
 }
 
 /*media queries*/
+@media (max-width:961px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .gridWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  img.backPic {
+    display: none;
+  }
+  .card_container:hover .card {
+    position: relative;
+    transform: rotateY(180deg);
+    width: 45vw;
+    height: 80vh;
+    z-index: 1000;
+  }
+  .card_container {
+    width: 45vw;
+    height: 40vw;
+  }
+  .tracklist {
+    display: block;
+    margin-left: 5%;
+  }
+  .button-container {
+    margin-top: 5px;
+  }
+  .change {
+    opacity: 1;
+  }
+}
 @media (max-width:525px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .gridWrapper {
     display: grid;
