@@ -57,7 +57,7 @@ class SearchBar extends React.Component {
     );
     return(
       <div className="searchField">
-        <input type="text" value={this.state.search}
+        <input type="text" placeholder="Search..." value={this.state.search}
         onChange={this.updateSearch.bind(this)}/>
         <div className="gridWrapper">
           {/*
