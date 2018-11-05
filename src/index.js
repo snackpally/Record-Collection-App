@@ -49,9 +49,10 @@ class SearchBar extends React.Component {
       (data) => {
         return (
           (data.artist.toLowerCase().indexOf(search) !== -1) ||
-          (data.title.toLowerCase().indexOf(search) !== -1)||
-          (data.genre.toLowerCase().indexOf(search) !== -1)||
-          (data.label.toLowerCase().indexOf(search) !== -1)
+          (data.title.toLowerCase().indexOf(search) !== -1) ||
+          (data.genre.toLowerCase().indexOf(search) !== -1) ||
+          (data.label.toLowerCase().indexOf(search) !== -1) ||
+          (data.year.toString().indexOf(search) !== -1)
         );
       }
     );
