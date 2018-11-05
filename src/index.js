@@ -58,8 +58,10 @@ class SearchBar extends React.Component {
     );
     return(
       <div className="searchField">
-        <input type="text" placeholder="Search..." value={this.state.search}
-        onChange={this.updateSearch.bind(this)}/>
+        <div className="input-wrapper">
+          <input type="text" placeholder="Search..." value={this.state.search}
+          onChange={this.updateSearch.bind(this)}/>
+        </div>
         <div className="gridWrapper">
           {/*
             It is important to pass the key along to any child in an array or

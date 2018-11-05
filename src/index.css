@@ -22,23 +22,18 @@ h1, h2 {
 h3,h4, p, li {
   font-family: 'Questrial', sans-serif;
 }
-/* --- Grid Styling --- */
-.item1 {
-  grid-area: header;
-}
-
-.item2 {
-  grid-area: search;
-}
-
-.item3 {
-  grid-area: main;
-}
-
 .gridWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
+
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+/* --- Grid Styling --- */
+
 
 .grid-container>div {
   background-color: rgba(255, 255, 255, 0.8);
@@ -122,13 +117,41 @@ img.backPic {
   line-height: 1.25em;
 }
 
+/*default input styling*/
+input[type=text] {
+  background-color: transparent;
+  color: #fafafa;
+  border: 1px solid #fafafa;
+  border-radius: 25px;
+  padding-left: 7px;
+}
+input[type=text]:focus {
+    outline: none;
+}
+
 /*Search Bar styling  */
-.searchField>input {
-  display: inherit;
+.input-wrapper {
+  width: 30%;
   margin: auto;
-  box-shadow: 1px 3px 8px #333;
-  border-radius: 6px;
-  font-size: x-large;
+  text-align: center;
+  margin-bottom: 2.5%;
+}
+.input-wrapper input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    font-size: 2em;
+    background-color: transparent;
+    color: #fafafa;
+    border: 3px solid #fafafa;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.input-wrapper input[type=text]:focus {
+    width: 100%;
+    outline: none;
 }
 
 /*
@@ -194,4 +217,36 @@ button, input[type="submit"] {
 }
 li:hover .change {
   opacity: 1;
+}
+
+/*media queries*/
+@media (max-width:525px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .gridWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  img.backPic {
+    display: none;
+  }
+  .card_container:hover .card {
+    position: relative;
+    transform: rotateY(180deg);
+    width: 90vw;
+    height: 80vh;
+    z-index: 1000;
+  }
+  .card_container {
+    width: 90vw;
+    height: 80vw;
+  }
+  .tracklist {
+    display: block;
+    margin-left: 5%;
+  }
+  .button-container {
+    margin-top: 5px;
+  }
+  .change {
+    opacity: 1;
+  }
 }
