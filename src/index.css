@@ -161,3 +161,19 @@ button, input[type="submit"] {
   border-radius: 5px;
   margin: 0px 10px;
 }
+
+/*---------------------new styles---------------------------*/
+.transparent {
+  background-color: transparent;
+  border: none;
+}
+.change {
+  opacity: 0;
+  position: relative;
+  top: -5px;
+  left: -5px;
+  transition: ease-in .5s;
+}
+.change:hover {
+  cursor: pointer;
+}
