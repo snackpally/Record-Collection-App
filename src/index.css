@@ -1,12 +1,27 @@
-/* Clean up line breaks */
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Baloo+Bhaijaan|Questrial|Righteous');
 body {
-  background-color: darkkhaki;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+background: #45484d; /* Old browsers */
+background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+color: #fafafa;
+letter-spacing: 0.03em;
 }
-
-div>h1 {
+.center {
   text-align: center;
 }
-
+* {
+  margin: 0;
+}
+h1, h2 {
+  font-family: 'Baloo Bhaijaan', cursive;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+h3,h4, p, li {
+  font-family: 'Questrial', sans-serif;
+}
 /* --- Grid Styling --- */
 .item1 {
   grid-area: header;
@@ -27,7 +42,6 @@ div>h1 {
 
 .grid-container>div {
   background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
 }
 
 /* --- Card Sytling --- */
@@ -38,16 +52,14 @@ div>h1 {
 
 .metainfo {
   text-align: center;
-  line-height: .10em;
-  background-color: rgba(101, 101, 101, 0.48);
-  border: 1px solid black;
-  margin-left: 50px;
-  margin-right: 50px;
+
+}
+.metainfo h1, .metainfo h2 {
+
 }
 
 .card_container {
-  margin: 10px auto;
-  padding: 20px;
+  margin: auto;
   width: 160px;
   height: 160px;
   position: relative;
@@ -66,8 +78,8 @@ div>h1 {
 .card_container:hover .card {
   position: relative;
   transform: rotateY(180deg);
-  width: 480px;
-  height: 480px;
+  width: 50vw;
+  height: 80vh;
   z-index: 1000;
 }
 
@@ -84,20 +96,12 @@ div>h1 {
 }
 
 .face.back {
-  display: block;
   transform: rotateY(180deg);
   box-sizing: border-box;
-  color: white;
-  text-align: center;
-  background-color: #3f3f3f;
   z-index: 100000;
+  background-color: #595959;
+  padding: 30px;
 }
-
-/* --- Card Styling Back Information --- */
-.topBack {
-  padding-left: 0px;
-}
-
 .front.face {
   background-size: cover;
 }
@@ -105,6 +109,17 @@ div>h1 {
 img.backPic {
   width: 25%;
   float: left;
+}
+.card-top {
+  display: block;
+  overflow: auto;
+  padding: 10px;
+}
+.card-top h1 {
+  line-height: 1em;
+}
+.card-top h2, .card-top h2 {
+  line-height: 1.25em;
 }
 
 /*Search Bar styling  */
@@ -125,8 +140,12 @@ img.backPic {
 */
 /* TODO: want to space album art closer to upper list. */
 .info-list {
-  text-align: center;
-  line-height: .5em;
+  margin: auto;
+  display: block;
+}
+.tracklist {
+  display: block;
+  margin-left: 35%;
 }
 
 .styleTitle {
@@ -137,12 +156,6 @@ img.backPic {
 .styleArtist {
   font-size: 20px;
 }
-
-.trackList h3 {
-  float: left;
-  text-decoration: underline !important;
-}
-
 ul li {
   list-style-type: none;
   padding: 0px;
@@ -159,7 +172,9 @@ button, input[type="submit"] {
   background-color: transparent;
   border: 1px solid #fefefe;
   border-radius: 5px;
-  margin: 0px 10px;
+}
+.button-container {
+  margin-top: 20px;
 }
 
 /*---------------------new styles---------------------------*/
@@ -177,12 +192,6 @@ button, input[type="submit"] {
 .change:hover {
   cursor: pointer;
 }
-.info-list > li:hover .change {
+li:hover .change {
   opacity: 1;
-}
-.info-list > li:hover > ol .change {
-  visibility: hidden;
-}
-.info-list > li > ol > li:hover .change {
-  visibility: visible;
 }

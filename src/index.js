@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Find your Tunes</h1>
+        <h1 className="center">Find your Tunes</h1>
         <SearchBar data={this.props.data} />
       </div>
     );
@@ -116,45 +116,47 @@ class AlbumCard extends React.Component {
             <div className="front face" style={style}>
             </div>
             <div className="back face">
-              <ul className="info-list">
-                <div className="topBack">
-                  <li className="album-cover">
-                    <img className="backPic" src={album.album_img_link} alt=""/>
-                  </li>
-                  <li className="styleTitle">
-                    <h2><EditableField value={album.title} editing={this.state.editing}/></h2>
-                  </li>
-                  <li className="styleArtist">
-                    <EditableField value={album.artist} editing={this.state.editing}/>
-                  </li>
-                  <li>
-                    <EditableField value={album.year} editing={this.state.editing}/>
-                  </li>
-                  <li>
-                    <EditableField value={album.genre} editing={this.state.editing}/>
-                  </li>
-                  <li>
-                    <EditableField value={album.label} editing={this.state.editing}/>
-                  </li>
+              <div className="card-top">
+                <div className="album-cover">
+                  <img className="backPic" src={album.album_img_link} alt=""/>
                 </div>
-                <li className="tracklist">
-                <h3>Track List:</h3>
-                  <ol>
-                    {album.track_list.map((track,i) => {
-                      return (
-                        <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
-                      );
-                    })}
-                  </ol>
-                </li>
-              </ul>
-              <button onClick={this.toggleEdit}>Edit</button>
+                <ul className="info-list">
+                    <li className="styleTitle">
+                      <h1><EditableField value={album.title} editing={this.state.editing}/></h1>
+                    </li>
+                    <li className="styleArtist">
+                      <h2><EditableField value={album.artist} editing={this.state.editing}/></h2>
+                    </li>
+                    <li>
+                      <h3><EditableField value={album.year} editing={this.state.editing}/></h3>
+                    </li>
+                    <li>
+                      <h3><EditableField value={album.genre} editing={this.state.editing}/></h3>
+                    </li>
+                    <li>
+                      <h3><EditableField value={album.label} editing={this.state.editing}/></h3>
+                    </li>
+                </ul>
+              </div>
+              <div className="tracklist">
+                  <h3>Track List:</h3>
+                    <ol>
+                      {album.track_list.map((track,i) => {
+                        return (
+                          <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
+                        );
+                      })}
+                    </ol>
+              </div>
+              <div className="center button-container">
+                <button onClick={this.toggleEdit}>Edit</button>
+              </div>
             </div>
           </div>
         </div>
         <div className="metainfo">
-          <h3>{album.title}</h3>
-          <h4>{album.artist}</h4>
+          <h1>{album.title}</h1>
+          <h2>{album.artist}</h2>
         </div>
       </div>
     );
