@@ -24,7 +24,8 @@ import data from './albums.json';
 class App extends React.Component {
   render() {
     return (
-      <div className="gridWrapper">
+      <div>
+        <h1 className="center">Find your Tunes</h1>
         <SearchBar data={this.props.data} />
       </div>
     );
@@ -48,17 +49,20 @@ class SearchBar extends React.Component {
       (data) => {
         return (
           (data.artist.toLowerCase().indexOf(search) !== -1) ||
-          (data.title.toLowerCase().indexOf(search) !== -1)||
-          (data.genre.toLowerCase().indexOf(search) !== -1)||
-          (data.label.toLowerCase().indexOf(search) !== -1)
+          (data.title.toLowerCase().indexOf(search) !== -1) ||
+          (data.genre.toLowerCase().indexOf(search) !== -1) ||
+          (data.label.toLowerCase().indexOf(search) !== -1) ||
+          (data.year.toString().indexOf(search) !== -1)
         );
       }
     );
     return(
       <div className="searchField">
-        <input type="text" value={this.state.search}
-        onChange={this.updateSearch.bind(this)}/>
-        <div>
+        <div className="input-wrapper">
+          <input type="text" placeholder="Search..." value={this.state.search}
+          onChange={this.updateSearch.bind(this)}/>
+        </div>
+        <div className="gridWrapper">
           {/*
             It is important to pass the key along to any child in an array or
             iterator. React is using this for the virtual dom, to assure that the
@@ -109,50 +113,52 @@ class AlbumCard extends React.Component {
     };
     return (
       <div className="output">
-        <div className="f1_container">
-          <div className="f1_card">
+        <div className="card_container">
+          <div className="card">
             <div className="front face" style={style}>
             </div>
             <div className="back face">
-              <ul className="info-list">
-                <div className="topBack">
-                  <li className="album-cover">
-                    <img className="backPic" src={album.album_img_link} alt=""/>
-                  </li>
-                  <li className="styleTitle">
-                    <h2><EditableField value={album.title} editing={this.state.editing}/></h2>
-                  </li>
-                  <li className="styleArtist">
-                    <EditableField value={album.artist} editing={this.state.editing}/>
-                  </li>
-                  <li>
-                    <EditableField value={album.year} editing={this.state.editing}/>
-                  </li>
-                  <li>
-                    <EditableField value={album.genre} editing={this.state.editing}/>
-                  </li>
-                  <li>
-                    <EditableField value={album.label} editing={this.state.editing}/>
-                  </li>
+              <div className="card-top">
+                <div className="album-cover">
+                  <img className="backPic" src={album.album_img_link} alt=""/>
                 </div>
-                <li className="tracklist">
-                Track List:
-                  <ol>
-                    {album.track_list.map((track,i) => {
-                      return (
-                        <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
-                      );
-                    })}
-                  </ol>
-                </li>
-              </ul>
-              <button onClick={this.toggleEdit}>Edit</button>
+                <ul className="info-list">
+                    <li className="styleTitle">
+                      <h1><EditableField value={album.title} editing={this.state.editing}/></h1>
+                    </li>
+                    <li className="styleArtist">
+                      <h2><EditableField value={album.artist} editing={this.state.editing}/></h2>
+                    </li>
+                    <li>
+                      <h3><EditableField value={album.year} editing={this.state.editing}/></h3>
+                    </li>
+                    <li>
+                      <h3><EditableField value={album.genre} editing={this.state.editing}/></h3>
+                    </li>
+                    <li>
+                      <h3><EditableField value={album.label} editing={this.state.editing}/></h3>
+                    </li>
+                </ul>
+              </div>
+              <div className="tracklist">
+                  <h3>Track List:</h3>
+                    <ol>
+                      {album.track_list.map((track,i) => {
+                        return (
+                          <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
+                        );
+                      })}
+                    </ol>
+              </div>
+              <div className="center button-container">
+                <button onClick={this.toggleEdit}>Edit</button>
+              </div>
             </div>
           </div>
         </div>
         <div className="metainfo">
-          <h3>{album.title}</h3>
-          <h4>{album.artist}</h4>
+          <h1>{album.title}</h1>
+          <h2>{album.artist}</h2>
         </div>
       </div>
     );
@@ -223,7 +229,9 @@ class EditableField extends React.Component {
       return (
         <div>
           {this.state.value}
-          <button onClick={this.toggleEdit}>Edit</button>
+          <button className="transparent change" onClick={this.toggleEdit}>
+            <img src="https://www.iconsdb.com/icons/preview/white/plus-xxl.png" width="8"/>
+          </button>
         </div>
       );
     }
