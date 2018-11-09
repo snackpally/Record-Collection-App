@@ -5,37 +5,59 @@
 }
 
 body {
-background: #45484d; /* Old browsers */
-background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-color: #fafafa;
-letter-spacing: 0.03em;
+  background: #45484d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #45484d 0%, #000000 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #45484d 0%, #000000 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #45484d 0%, #000000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#45484d', endColorstr='#000000', GradientType=0);
+  /* IE6-9 */
+  color: #fafafa;
+  letter-spacing: 0.03em;
 }
+
 .center {
   text-align: center;
 }
+
 h1, h2 {
   font-family: 'Baloo Bhaijaan', cursive;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
-h3,h4, p, li {
+
+h3, h4, p, li {
   font-family: 'Questrial', sans-serif;
 }
+
 .gridWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
-@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ }
 
-@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
-@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+@media (min-width:320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+}
+
+@media (min-width:641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media (min-width:961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+  /* hi-res laptops and desktops */
+}
+
 /* --- Grid Styling --- */
-
-
 .grid-container>div {
   background-color: rgba(255, 255, 255, 0.8);
 }
@@ -48,11 +70,9 @@ h3,h4, p, li {
 
 .metainfo {
   text-align: center;
-
 }
-.metainfo h1, .metainfo h2 {
 
-}
+.metainfo h1, .metainfo h2 {}
 
 .card_container {
   margin: auto;
@@ -73,7 +93,7 @@ h3,h4, p, li {
 
 .card_container:hover .card {
   position: relative;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateX(160px);
   width: 50vw;
   height: 80vh;
   z-index: 1000;
@@ -98,6 +118,7 @@ h3,h4, p, li {
   background-color: #595959;
   padding: 30px;
 }
+
 .front.face {
   background-size: cover;
 }
@@ -106,14 +127,17 @@ img.backPic {
   width: 25%;
   float: left;
 }
+
 .card-top {
   display: block;
   overflow: auto;
   padding: 10px;
 }
+
 .card-top h1 {
   line-height: 1em;
 }
+
 .card-top h2, .card-top h2 {
   line-height: 1.25em;
 }
@@ -126,8 +150,9 @@ input[type=text] {
   border-radius: 25px;
   padding-left: 7px;
 }
+
 input[type=text]:focus {
-    outline: none;
+  outline: none;
 }
 
 /*Search Bar styling  */
@@ -137,22 +162,23 @@ input[type=text]:focus {
   text-align: center;
   margin-bottom: 2.5%;
 }
+
 .input-wrapper input[type=text] {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-    font-size: 2em;
-    background-color: transparent;
-    color: #fafafa;
-    border: 3px solid #fafafa;
-    border-radius: 25px;
-    padding: 10px;
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  font-size: 2em;
+  background-color: transparent;
+  color: #fafafa;
+  border: 3px solid #fafafa;
+  border-radius: 25px;
+  padding: 10px;
 }
 
 /* When the input field gets focus, change its width to 100% */
 .input-wrapper input[type=text]:focus {
-    width: 100%;
-    outline: none;
+  width: 100%;
+  outline: none;
 }
 
 /*
@@ -167,6 +193,7 @@ input[type=text]:focus {
   margin: auto;
   display: block;
 }
+
 .tracklist {
   display: block;
   margin-left: 35%;
@@ -180,6 +207,7 @@ input[type=text]:focus {
 .styleArtist {
   font-size: 20px;
 }
+
 ul li {
   list-style-type: none;
   padding: 0px;
@@ -197,6 +225,7 @@ button, input[type="submit"] {
   border: 1px solid #fefefe;
   border-radius: 5px;
 }
+
 .button-container {
   margin-top: 20px;
 }
@@ -206,6 +235,7 @@ button, input[type="submit"] {
   background-color: transparent;
   border: none;
 }
+
 .change {
   opacity: 0;
   position: relative;
@@ -213,22 +243,28 @@ button, input[type="submit"] {
   left: -5px;
   transition: ease-in .5s;
 }
+
 .change:hover {
   cursor: pointer;
 }
+
 li:hover .change {
   opacity: 1;
 }
 
 /*media queries*/
-@media (max-width:961px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (max-width:961px) {
+
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .gridWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   img.backPic {
     display: none;
   }
+
   .card_container:hover .card {
     position: relative;
     transform: rotateY(180deg);
@@ -236,29 +272,38 @@ li:hover .change {
     height: 80vh;
     z-index: 1000;
   }
+
   .card_container {
     width: 45vw;
     height: 40vw;
   }
+
   .tracklist {
     display: block;
     margin-left: 5%;
   }
+
   .button-container {
     margin-top: 5px;
   }
+
   .change {
     opacity: 1;
   }
 }
-@media (max-width:525px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+@media (max-width:525px) {
+
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   .gridWrapper {
     display: grid;
     grid-template-columns: 1fr;
   }
+
   img.backPic {
     display: none;
   }
+
   .card_container:hover .card {
     position: relative;
     transform: rotateY(180deg);
@@ -266,17 +311,21 @@ li:hover .change {
     height: 80vh;
     z-index: 1000;
   }
+
   .card_container {
     width: 90vw;
     height: 80vw;
   }
+
   .tracklist {
     display: block;
     margin-left: 5%;
   }
+
   .button-container {
     margin-top: 5px;
   }
+
   .change {
     opacity: 1;
   }
