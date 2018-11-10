@@ -224,7 +224,7 @@ class EditableField extends React.Component {
         <div>
           {this.state.value}
           <button className="transparent change" onClick={this.toggleEdit}>
-            <img src="https://www.iconsdb.com/icons/preview/white/plus-xxl.png" width="8"/>
+            <img src="https://www.impetus.com/sites/default/files/plus.png" width="8"/>
           </button>
         </div>
       );
