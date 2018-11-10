@@ -122,7 +122,7 @@ class AlbumCard extends React.Component {
         <div className="accordion" id={'accordion-parent-'+this.props.accordionId}>
           <div className="card">
             <div className="card-header no-style center">
-              <button className="btn no-style" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
+              <button className="btn no-style width" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
                   <img className="cover-image" src={album.album_img_link} alt=""/>
               </button><br/>
               <button className="btn btn-dark block" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
