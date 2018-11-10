@@ -59,7 +59,7 @@ class SearchBar extends React.Component {
     return(
       <div>
         <div className="input-wrapper">
-          <input type="text" placeholder="Search..." value={this.state.search}
+          <input class="form-control" type="text" placeholder="Search..." value={this.state.search}
           onChange={this.updateSearch.bind(this)}/>
         </div>
         <div className="row row-eq-height">
@@ -200,9 +200,12 @@ class EditableField extends React.Component {
   }
 
   handleSubmit(event) {
-    this.setState({value: this.state.formValue});
+    if (this.state.formValue){
+      this.setState({value: this.state.formValue});
+    }
     this.toggleEdit();
     event.preventDefault();
+
   }
 
   render() {
@@ -210,7 +213,7 @@ class EditableField extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            <input type="text" placeholder={this.state.value} value={this.state.formValue} onChange={this.handleChange} />
+            <input class="form-control" type="text" placeholder={this.state.value} value={this.state.formValue} onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
           <button onClick={this.toggleEdit}>Cancel</button>

@@ -1,19 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Kanit|Luckiest+Guy|Monoton|Righteous|Secular+One');
+
+
 html, body {
   width: 100%;
   height: 100%;
   background-color: #777;
+  color: #f3f3f3;
 }
 h1 {
   font-size: 3vw;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-family: 'Monoton', cursive;
 }
 h2 {
   font-size: 2vw;
+  font-family: 'Luckiest Guy', cursive;
+
 }
 h3 {
   font-size: 1.5vw;
+  font-family: 'Secular One', sans-serif;
+
 }
 p, li {
   font-size: 1vw;
+  font-family: 'Secular One', sans-serif;
+
 }
 .center {
   text-align: center;
