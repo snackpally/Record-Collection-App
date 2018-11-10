@@ -3,7 +3,6 @@
 html, body {
   width: 100%;
   height: 100%;
-  background-color: #777;
   color: #f3f3f3;
 }
 img { max-width: 100%; display: block; height: auto; }
@@ -31,6 +30,10 @@ p, li, button, input {
 .center {
   text-align: center;
 }
+.block {
+  display: block;
+  width: 100%;
+}
 .container {
   margin: auto;
 }
@@ -57,9 +60,11 @@ p, li, button, input {
 }
 .card {
   border: none;
+  padding: 10px;
 }
 .card-header {
-  padding: 10px;
+
+  padding-bottom: 0;
 }
 .info-list {
   text-align: center;
@@ -73,16 +78,21 @@ p, li, button, input {
   h3 {
 
   }
-  button.transparent {
-    background-color: transparent;
-    border: none;
-  }
 }
 .tracklist {
   text-align: left;
+}
+button.transparent {
+  background-color: transparent;
+  border: none;
+  float: right;
+  opacity: 0;
+  transition-duration: .5s;
+}
+ol li:hover, li.tool-tip:hover {
   button.transparent {
-    background-color: transparent !important;
-    border: none !important;
+    opacity: 1;
+    cursor: pointer;
   }
 }
 .button-space {
@@ -91,6 +101,13 @@ p, li, button, input {
 
 .cover-image {
   width: 100% !important;
+}
+.video-window {
+  position: fixed;
+  top: 0;
+  z-index: -99;
+  width: 100%;
+  height: 100%;
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

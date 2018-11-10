@@ -59,7 +59,7 @@ class SearchBar extends React.Component {
     return(
       <div>
         <div className="input-wrapper">
-          <input class="form-control" type="text" placeholder="Search..." value={this.state.search}
+          <input className="form-control" type="text" placeholder="Search..." value={this.state.search}
           onChange={this.updateSearch.bind(this)}/>
         </div>
         <div className="row row-eq-height">
@@ -121,29 +121,29 @@ class AlbumCard extends React.Component {
         <div className="accordion" id={'accordion-parent-'+this.props.accordionId}>
           <div className="card">
             <div className="card-header no-style center">
-              <button className="btn btn-link no-style" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
+              <button className="btn no-style" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
                   <img className="cover-image" src={album.album_img_link} alt=""/>
               </button><br/>
-              <button className="btn btn-primary button-space" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
+              <button className="btn btn-primary block" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
                   {showButton}
               </button>
             </div>
             <div id={'accordion-'+this.props.accordionId} className="collapse" aria-labelledby="headingOne" data-parent={'#accordion-parent-'+this.props.accordionId}>
               <div className="card-body">
                 <ul className="info-list list-group list-group-flush">
-                    <li class="list-group-item">
-                      <h1 className="red"><EditableField value={album.title} editing={this.state.editing}/></h1>
+                    <li class="list-group-item tool-tip">
+                      <h1><EditableField value={album.title} editing={this.state.editing}/></h1>
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item tool-tip">
                       <h2><EditableField value={album.artist} editing={this.state.editing}/></h2>
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item tool-tip">
                       <h3><EditableField value={album.year} editing={this.state.editing}/></h3>
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item tool-tip">
                       <h3><EditableField value={album.genre} editing={this.state.editing}/></h3>
                     </li>
-                    <li className="list-group-item">
+                    <li className="list-group-item tool-tip">
                       <h3><EditableField value={album.label} editing={this.state.editing}/></h3>
                     </li>
                     <li className="list-group-item tracklist">
