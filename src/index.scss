@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel|Kanit|Luckiest+Guy|Monoton|Righteous|Secular+One');
-
+@import url('https://fonts.googleapis.com/css?family=Days+One|Do+Hyeon|Magra|Pridi|Viga');
 
 html, body {
   width: 100%;
@@ -7,25 +6,27 @@ html, body {
   background-color: #777;
   color: #f3f3f3;
 }
+img { max-width: 100%; display: block; height: auto; }
+
 h1 {
   font-size: 3vw;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-  font-family: 'Monoton', cursive;
+  font-family: 'Do Hyeon', sans-serif;
+
 }
 h2 {
   font-size: 2vw;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Pridi', serif;
 
 }
 h3 {
   font-size: 1.5vw;
-  font-family: 'Secular One', sans-serif;
+  font-family: 'Pridi', serif;
 
 }
-p, li {
+p, li, button, input {
   font-size: 1vw;
-  font-family: 'Secular One', sans-serif;
-
+  font-family: 'Magra', sans-serif;
 }
 .center {
   text-align: center;
@@ -48,8 +49,11 @@ p, li {
   background-color: #222;
   color: #fff;
 }
-.card, .card-header {
+.card, .card-header, .list-group, .list-group-item {
   background-color: transparent;
+}
+.list-group-item {
+  border-color: #d3d3d3;
 }
 .card {
   border: none;
@@ -69,19 +73,20 @@ p, li {
   h3 {
 
   }
-  button{
-    background-color: transparent !important;
-    border: none !important;
+  button.transparent {
+    background-color: transparent;
+    border: none;
   }
 }
 .tracklist {
-  button {
+  text-align: left;
+  button.transparent {
     background-color: transparent !important;
     border: none !important;
   }
 }
 .button-space {
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .cover-image {
@@ -89,8 +94,11 @@ p, li {
 }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  h1, h2, h3 {
+    font-size: 6vw;
+  }
   p, li {
-    font-size: 1.75vw;
+    font-size: 4vw;
   }
   .column {
     width: 65% !important;

@@ -92,7 +92,8 @@ class AlbumCard extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-        editing: false
+        editing: false,
+        open: false
       }
   }
   toggleEdit = () => {
@@ -101,7 +102,16 @@ class AlbumCard extends React.Component {
       editing: !prevState.editing
     }));
   }
+  toggleShow = () => {
+    this.setState((prevState) => ({
+      open: !prevState.open
+    }));
+  }
   render() {
+    var showButton = 'See More';
+    if(this.state.open){
+      showButton = 'Hide';
+    }
     var album = this.props.data;
     var style = {
       backgroundImage:'url(' + album.album_img_link + ')',
@@ -111,42 +121,42 @@ class AlbumCard extends React.Component {
         <div className="accordion" id={'accordion-parent-'+this.props.accordionId}>
           <div className="card">
             <div className="card-header no-style center">
-              <button className="btn btn-link no-style" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId}>
+              <button className="btn btn-link no-style" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
                   <img className="cover-image" src={album.album_img_link} alt=""/>
               </button><br/>
-              <button className="btn btn-primary button-space" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId}>
-                  See More
+              <button className="btn btn-primary button-space" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
+                  {showButton}
               </button>
             </div>
             <div id={'accordion-'+this.props.accordionId} className="collapse" aria-labelledby="headingOne" data-parent={'#accordion-parent-'+this.props.accordionId}>
               <div className="card-body">
-                <ul className="info-list">
-                    <li>
+                <ul className="info-list list-group list-group-flush">
+                    <li class="list-group-item">
                       <h1 className="red"><EditableField value={album.title} editing={this.state.editing}/></h1>
                     </li>
-                    <li>
+                    <li className="list-group-item">
                       <h2><EditableField value={album.artist} editing={this.state.editing}/></h2>
                     </li>
-                    <li>
+                    <li className="list-group-item">
                       <h3><EditableField value={album.year} editing={this.state.editing}/></h3>
                     </li>
-                    <li>
+                    <li className="list-group-item">
                       <h3><EditableField value={album.genre} editing={this.state.editing}/></h3>
                     </li>
-                    <li>
+                    <li className="list-group-item">
                       <h3><EditableField value={album.label} editing={this.state.editing}/></h3>
                     </li>
-                </ul>
-                <div className="tracklist">
-                  <h3>Track List:</h3>
-                  <ol>
-                    {album.track_list.map((track,i) => {
-                      return (
-                        <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
-                      );
-                    })}
-                  </ol>
-                </div>
+                    <li className="list-group-item tracklist">
+                      <h3>Track List:</h3>
+                      <ol>
+                        {album.track_list.map((track,i) => {
+                          return (
+                            <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
+                          );
+                        })}
+                      </ol>
+                    </li>
+                  </ul>
               </div>
             </div>
           </div>
@@ -213,10 +223,10 @@ class EditableField extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label>
-            <input class="form-control" type="text" placeholder={this.state.value} value={this.state.formValue} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
-          <button onClick={this.toggleEdit}>Cancel</button>
+            <input className="form-control" type="text" placeholder={this.state.value} value={this.state.formValue} onChange={this.handleChange} />
+          </label><br/>
+          <input className="btn btn-success button-space" type="submit" value="Submit" />
+          <button type="button" className="btn btn-danger button-space" onClick={this.toggleEdit}>Cancel</button>
         </form>
       );
     } else {
