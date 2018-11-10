@@ -72,29 +72,14 @@ class Search extends React.Component {
     );
   }
 }
-// input componet
-// todo create input form componet
 
-
-//Record List Component
-class AlbumList extends React.Component {
-  render() {
-    let result = [];
-    for(var i = 0; i < data.length; i++){
-      result.push(<AlbumCard data={data[i]} />);
-    }
-    return (
-      <div className="cards">{result}</div>
-    );
-  }
-}
 //Record Component (contains title, artist, genre, album art link, tracklist, release date, label, trackCount)
 class AlbumCard extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
         editing: false,
-        open: false
+        accordionIsOpen: false
       }
   }
   toggleEdit = () => {
@@ -105,12 +90,12 @@ class AlbumCard extends React.Component {
   }
   toggleShow = () => {
     this.setState((prevState) => ({
-      open: !prevState.open
+      accordionIsOpen: !prevState.accordionIsOpen
     }));
   }
   render() {
     var showButton = 'See More';
-    if(this.state.open){
+    if(this.state.accordionIsOpen){
       showButton = 'Hide';
     }
     var album = this.props.data;
@@ -129,7 +114,8 @@ class AlbumCard extends React.Component {
                   {showButton}
               </button>
             </div>
-            <div id={'accordion-'+this.props.accordionId} className="collapse" aria-labelledby="headingOne" data-parent={'#accordion-parent-'+this.props.accordionId}>
+
+            <div id={'accordion-'+this.props.accordionId} className="collapse" data-parent={'#accordion-parent-'+this.props.accordionId}>
               <div className="card-body">
                 <ul className="info-list list-group list-group-flush">
                     <li class="list-group-item tool-tip">
