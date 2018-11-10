@@ -20,12 +20,12 @@ var albumSchema = new mongoose.Schema({
   "track_list": Array
 });
 
-var User = mongoose.model('User', userSchema, "albums");
+var User = mongoose.model('User', albumSchema, "albums");
 
 const app = express();//Create basic server with express
 app.use(cors());
 
-app.get('/getAll', function(request, response){
+app.get('/getAlbumList', function(request, response){
   User.find({}, function(err, documents){//reach into our database and if error log error else send info
     if(err){
       console.log(err);
@@ -35,6 +35,6 @@ app.get('/getAll', function(request, response){
   })
 });
 
-app.listen(3000, function(){
-  'Server is running on 3000'
+app.listen(3001, function(){
+  'Server is running on 3001'
 });

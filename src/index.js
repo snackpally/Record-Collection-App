@@ -17,19 +17,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import data from './albums.json';
+// import data from './albums.json';
+import axios from 'axios'; //can use ES6 in React, not in Node yet (server.js is es5)
 //create components
 //class App extends React.Component {
 //app component
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data: '',
+    }
+  }
+  componentDidMount(){
+  //called when React successfully renders the component
+    axios.get('http://localhost:3001/getAlbumList').then(res => {
+      //set the state to match the axios response
+      console.log(res);
+      this.setState({
+        data: res.data,
+      });
+    });
+  }
   render() {
-    return (
-      <div className="container">
-        <h1 className="center">Find your Tunes</h1>
-        <Search data={this.props.data} />
-      </div>
-    );
+    if (this.state.data) {
+      return (
+        <div className="container">
+          <h1 className="center">Find your Tunes</h1>
+          <Search data={this.state.data} />
+        </div>
+      );
+    }
+    else {
+      return (<h1 className="center">Cannot find album list</h1>);
+    }
   }
 }
 
@@ -41,8 +63,13 @@ class Search extends React.Component {
       search: ''
     };
   }
+  componentWillReceiveProps(newProp) {
+    this.setState({
+      data: newProp.data
+    });
+  }
   updateSearch(event){
-    this.setState({search: event.target.value})
+    this.setState({search: event.target.value});
   }
   render() {
     let search = this.state.search.toLowerCase();
@@ -238,8 +265,8 @@ class EditableField extends React.Component {
   }
 }
 //Dom Render
-
+//data={data}
 ReactDOM.render(
- <App data={data} />,
+ <App />,
  document.getElementById('root')
 );
