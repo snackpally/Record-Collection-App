@@ -24,7 +24,7 @@ import data from './albums.json';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <h1 className="center">Find your Tunes</h1>
         <SearchBar data={this.props.data} />
       </div>
@@ -57,19 +57,14 @@ class SearchBar extends React.Component {
       }
     );
     return(
-      <div className="searchField">
+      <div>
         <div className="input-wrapper">
           <input type="text" placeholder="Search..." value={this.state.search}
           onChange={this.updateSearch.bind(this)}/>
         </div>
-        <div className="gridWrapper">
-          {/*
-            It is important to pass the key along to any child in an array or
-            iterator. React is using this for the virtual dom, to assure that the
-            correct element is updated when state changes.
-          */}
+        <div className="row row-eq-height">
           {filterArtist.map((data, i) => {
-          return <AlbumCard key={i} data={data} />
+          return <AlbumCard key={i} data={data} accordionId={i}/>
           })}
         </div>
       </div>
@@ -112,21 +107,24 @@ class AlbumCard extends React.Component {
       backgroundImage:'url(' + album.album_img_link + ')',
     };
     return (
-      <div className="output">
-        <div className="card_container">
+      <div className="column">
+        <div className="accordion" id={'accordion-parent-'+this.props.accordionId}>
           <div className="card">
-            <div className="front face" style={style}>
+            <div className="card-header no-style center">
+              <button className="btn btn-link no-style" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId}>
+                  <img className="cover-image" src={album.album_img_link} alt=""/>
+              </button><br/>
+              <button className="btn btn-primary button-space" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId}>
+                  See More
+              </button>
             </div>
-            <div className="back face">
-              <div className="card-top">
-                <div className="album-cover">
-                  <img className="backPic" src={album.album_img_link} alt=""/>
-                </div>
+            <div id={'accordion-'+this.props.accordionId} className="collapse" aria-labelledby="headingOne" data-parent={'#accordion-parent-'+this.props.accordionId}>
+              <div className="card-body">
                 <ul className="info-list">
-                    <li className="styleTitle">
-                      <h1><EditableField value={album.title} editing={this.state.editing}/></h1>
+                    <li>
+                      <h1 className="red"><EditableField value={album.title} editing={this.state.editing}/></h1>
                     </li>
-                    <li className="styleArtist">
+                    <li>
                       <h2><EditableField value={album.artist} editing={this.state.editing}/></h2>
                     </li>
                     <li>
@@ -139,26 +137,19 @@ class AlbumCard extends React.Component {
                       <h3><EditableField value={album.label} editing={this.state.editing}/></h3>
                     </li>
                 </ul>
-              </div>
-              <div className="tracklist">
+                <div className="tracklist">
                   <h3>Track List:</h3>
-                    <ol>
-                      {album.track_list.map((track,i) => {
-                        return (
-                          <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
-                        );
-                      })}
-                    </ol>
-              </div>
-              <div className="center button-container">
-                <button onClick={this.toggleEdit}>Edit</button>
+                  <ol>
+                    {album.track_list.map((track,i) => {
+                      return (
+                        <li key={i}><EditableField key={i} value={track} editing={this.state.editing}/></li>
+                      );
+                    })}
+                  </ol>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="metainfo">
-          <h1>{album.title}</h1>
-          <h2>{album.artist}</h2>
         </div>
       </div>
     );

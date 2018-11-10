@@ -1,0 +1,105 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #777;
+}
+h1 {
+  font-size: 3vw;
+}
+h2 {
+  font-size: 2vw;
+}
+h3 {
+  font-size: 1.5vw;
+}
+p, li {
+  font-size: 1vw;
+}
+.center {
+  text-align: center;
+}
+.container {
+  margin: auto;
+}
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.no-style {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.card-body {
+  background-color: #222;
+  color: #fff;
+}
+.card, .card-header {
+  background-color: transparent;
+}
+.card {
+  border: none;
+}
+.card-header {
+  padding: 10px;
+}
+.info-list {
+  text-align: center;
+  list-style: none;
+  h1{
+
+  }
+  h2 {
+
+  }
+  h3 {
+
+  }
+  button{
+    background-color: transparent !important;
+    border: none !important;
+  }
+}
+.tracklist {
+  button {
+    background-color: transparent !important;
+    border: none !important;
+  }
+}
+.button-space {
+  margin: 10px 0;
+}
+
+.cover-image {
+  width: 100% !important;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  p, li {
+    font-size: 1.75vw;
+  }
+  .column {
+    width: 65% !important;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  p, li {
+    font-size: 1vw;
+  }
+  .column {
+    width: 45% !important;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .column {
+    width: 33% !important;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
