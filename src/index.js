@@ -94,11 +94,11 @@ class AlbumCard extends React.Component {
     }));
   }
   render() {
-    var showButton = 'See More';
+    var album = this.props.data;
+    var showButton = album.title;
     if(this.state.accordionIsOpen){
       showButton = 'Hide';
     }
-    var album = this.props.data;
     var style = {
       backgroundImage:'url(' + album.album_img_link + ')',
     };
@@ -183,7 +183,10 @@ class EditableField extends React.Component {
     we have to tell react that we need to watch for incoming props
   */
   componentWillReceiveProps(newProp) {
-    this.setState({ editing: newProp.editing });
+    this.setState({
+      editing: newProp.editing,
+      value: newProp.value
+    });
   }
 
   toggleEdit = () => {
