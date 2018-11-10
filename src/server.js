@@ -66,14 +66,13 @@ app.put('/update/:title', function(request, response){
   });
 
 });
-app.delete('/delete/:id', function(request, response){
-  Album.findByIdAndRemove({id:request.params.id}, function(err, doc){//reach into our database and if error log error else send info
+app.delete('/delete/:title', function(request, response){
+  Album.findOneAndRemove({title:request.params.title}, function(err, doc){//reach into our database and if error log error else send info
     if(err){
       console.log('I messed up');
     } else{
-      return response.status(200).send(doc);
-
-      console.log(response);
+      console.log(doc);
+      console.log('success');
     }
   });
 });
