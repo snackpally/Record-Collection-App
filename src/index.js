@@ -21,19 +21,20 @@ import data from './albums.json';
 //create components
 //class App extends React.Component {
 //app component
+
 class App extends React.Component {
   render() {
     return (
       <div className="container">
         <h1 className="center">Find your Tunes</h1>
-        <SearchBar data={this.props.data} />
+        <Search data={this.props.data} />
       </div>
     );
   }
 }
 
 //search componet
-class SearchBar extends React.Component {
+class Search extends React.Component {
   constructor(){
     super();
     this.state= {
@@ -124,7 +125,7 @@ class AlbumCard extends React.Component {
               <button className="btn no-style" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
                   <img className="cover-image" src={album.album_img_link} alt=""/>
               </button><br/>
-              <button className="btn btn-primary block" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
+              <button className="btn btn-dark block" type="button" data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId} aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId} onClick={this.toggleShow}>
                   {showButton}
               </button>
             </div>
