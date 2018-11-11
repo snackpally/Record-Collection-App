@@ -46,6 +46,7 @@ class App extends React.Component {
         <div className="container">
           <h1 className="center">Find your Tunes</h1>
           <Search data={this.state.data} />
+          <Submit accordionId={1000} />
         </div>
       );
     }
@@ -55,7 +56,78 @@ class App extends React.Component {
   }
 }
 
-//search componet
+//Submit Component
+class Submit extends React.Component {
+constructor() {
+  super();
+  this.state = {
+    titleValue: "",
+    artistValue: "",
+    yearValue: "",
+    genreValue: "",
+    labelValue: "",
+    trackValue: ""
+  };
+}
+
+handleSubmit() {
+  return;
+}
+  render(){
+    return (
+      <div className="column">
+        <div className="accordion" id={'accordion-parent-'+this.props.accordionId}>
+          <div className="card">
+            <div className="card-header no-style center">
+              <button className="btn no-style width" type="button"
+              data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId}
+              aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId}>
+                  <img className="cover-image" src="http://www.clker.com/cliparts/L/q/T/i/P/S/add-button-white-hi.png" alt=""/>
+              </button><br/>
+              <button className="btn btn-dark block" type="button" data-toggle="collapse"
+              data-target={'#accordion-'+this.props.accordionId} aria-expanded="true"
+              aria-controls={'#accordion-'+this.props.accordionId}>
+                  Add new album
+              </button>
+            </div>
+
+            <div id={'accordion-'+this.props.accordionId} className="collapse"
+            data-parent={'#accordion-parent-'+this.props.accordionId}>
+              <div className="card-body">
+              <form>
+                <ul className="info-list list-group list-group-flush">
+                    <li class="list-group-item tool-tip">
+                      <input id="input-title" name="textinput" type="text" placeholder="Title" class="form-control input-md" />
+                    </li>
+                    <li class="list-group-item tool-tip">
+                      <input id="input-artist" name="textinput" type="text" placeholder="Artist" class="form-control input-md" />
+                    </li>
+                    <li class="list-group-item tool-tip">
+                      <input id="input-year" name="textinput" type="number" placeholder="Year" class="form-control input-md" />
+                    </li>
+                    <li class="list-group-item tool-tip">
+                      <input id="input-genre" name="textinput" type="text" placeholder="Genre" class="form-control input-md" />
+                    </li>
+                    <li class="list-group-item tool-tip">
+                      <input id="input-label" name="textinput" type="text" placeholder="Label" class="form-control input-md" />
+                    </li>
+                    <li class="list-group-item tool-tip">
+                      <input id="input-track" name="textinput" type="text" placeholder="Track 1" class="form-control input-md" />
+                    </li>
+                  </ul>
+                  <button type="button" className="btn btn-success">Submit</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+//search component
 class Search extends React.Component {
   constructor(){
     super();
