@@ -19,6 +19,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import data from './albums.json';
 import axios from 'axios'; //can use ES6 in React, not in Node yet (server.js is es5)
+import $ from 'jquery';
 //create components
 //class App extends React.Component {
 //app component
@@ -46,7 +47,7 @@ class App extends React.Component {
         <div className="container">
           <h1 className="center">Find your Tunes</h1>
           <Search data={this.state.data} />
-          <Submit accordionId={1000} />
+
         </div>
       );
     }
@@ -60,18 +61,23 @@ class App extends React.Component {
 class Submit extends React.Component {
 constructor() {
   super();
-  this.state = {
-    titleValue: "",
-    artistValue: "",
-    yearValue: "",
-    genreValue: "",
-    labelValue: "",
-    trackValue: ""
-  };
+
 }
 
 handleSubmit() {
-  return;
+  let newAlbum = {};
+    newAlbum.title= $('#input-title').val();
+    newAlbum.artist= $('#input-artist').val();
+    newAlbum.album_img_link= $('#input-img').val();
+    newAlbum.year= $('#input-year').val();
+    newAlbum.genre= $('#input-genre').val();
+    newAlbum.label= $('#input-label').val();
+    newAlbum.track_list=[$('#input-track').val()];
+  axios.post('http://localhost:3001/create', newAlbum).then(res =>{
+    console.log(res);
+  }).catch(err =>{
+    console.log(err);
+  });
 }
   render(){
     return (
@@ -79,7 +85,7 @@ handleSubmit() {
         <div className="accordion" id={'accordion-parent-'+this.props.accordionId}>
           <div className="card">
             <div className="card-header no-style center">
-              <button className="btn no-style width" type="button"
+              <button className="btn no-style width btn btn-dark" type="button"
               data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId}
               aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId}>
                   <img className="cover-image" src={'http://www.clker.com/cliparts/L/q/T/i/P/S/add-button-white-hi.png'} alt=""/>
@@ -94,13 +100,16 @@ handleSubmit() {
             <div id={'accordion-'+this.props.accordionId} className="collapse"
             data-parent={'#accordion-parent-'+this.props.accordionId}>
               <div className="card-body">
-              <form>
+              <form >
                 <ul className="info-list list-group list-group-flush">
                     <li class="list-group-item tool-tip">
                       <input id="input-title" name="textinput" type="text" placeholder="Title" class="form-control input-md" />
                     </li>
                     <li class="list-group-item tool-tip">
                       <input id="input-artist" name="textinput" type="text" placeholder="Artist" class="form-control input-md" />
+                    </li>
+                    <li class="list-group-item tool-tip">
+                      <input id="input-img" name="textinput" type="url" placeholder="https://example.net" class="form-control input-md" />
                     </li>
                     <li class="list-group-item tool-tip">
                       <input id="input-year" name="textinput" type="number" placeholder="Year" class="form-control input-md" />
@@ -115,7 +124,7 @@ handleSubmit() {
                       <input id="input-track" name="textinput" type="text" placeholder="Track 1" class="form-control input-md" />
                     </li>
                   </ul>
-                  <button type="button" className="btn btn-success">Submit</button>
+                  <button type="Submit" className="btn btn-success" onClick={this.handleSubmit}>Submit</button>
                   </form>
               </div>
             </div>
@@ -166,6 +175,7 @@ class Search extends React.Component {
           {filterArtist.map((data, i) => {
           return <AlbumCard key={i} data={data} accordionId={i}/>
           })}
+          <Submit accordionId={1000} />
         </div>
       </div>
     );
