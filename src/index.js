@@ -82,7 +82,7 @@ handleSubmit() {
               <button className="btn no-style width" type="button"
               data-toggle="collapse" data-target={'#accordion-'+this.props.accordionId}
               aria-expanded="true" aria-controls={'#accordion-'+this.props.accordionId}>
-                  <img className="cover-image" src="http://www.clker.com/cliparts/L/q/T/i/P/S/add-button-white-hi.png" alt=""/>
+                  <img className="cover-image" src={'http://www.clker.com/cliparts/L/q/T/i/P/S/add-button-white-hi.png'} alt=""/>
               </button><br/>
               <button className="btn btn-dark block" type="button" data-toggle="collapse"
               data-target={'#accordion-'+this.props.accordionId} aria-expanded="true"
