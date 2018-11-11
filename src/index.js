@@ -135,6 +135,67 @@ handleSubmit() {
   }
 }
 
+//Delete component
+class DeleteButton extends React.Component{
+  constructor(props){
+    super(props);
+    this.state= {
+      isDeleting: false,
+      title: props.title
+    };
+  }
+
+  componentWillReceiveProps(newProp) {
+    this.setState({
+      title: newProp.title,
+    });
+  }
+
+
+  handlePop(){
+    this.setState((prevState) => ({
+         isDeleting: !prevState.isDeleting
+       }), function(){
+         console.log(this.state.isDeleting);
+       });
+  }
+
+  toggleDelete(){
+    this.setState((prevState) => ({
+         isDeleting: !prevState.isDeleting
+       }), function(){
+         console.log(this.state.isDeleting);
+       });
+
+  }
+
+  handleDelete(){
+    let apiCall = 'http://localhost:3001/delete/' + this.props.title;
+    axios.delete(apiCall).then(res =>{
+      console.log(res);
+    }).catch(err =>{
+      console.log(err);
+    });
+   window.location.reload();
+  }
+
+
+  render(){
+    if(this.state.isDeleting){
+      return(
+        <div className="pop-up">
+          <p className="text-danger">Are you sure&#63;</p>
+            <button className="btn btn-danger center" onClick={()=>this.handleDelete()}>Delete</button>
+            <button className="btn btn-info center" onClick={()=>this.toggleDelete()}>Cancel</button>
+        </div>
+      )
+    }
+    return(
+      <button className="btn btn-danger center" onClick={()=>this.handlePop()}>Delete</button>
+    )
+  };
+}
+
 
 //search component
 class Search extends React.Component {
@@ -259,6 +320,7 @@ class AlbumCard extends React.Component {
                       </ol>
                     </li>
                   </ul>
+                <DeleteButton title={album.title} />
               </div>
             </div>
           </div>
